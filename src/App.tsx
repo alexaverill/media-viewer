@@ -2,11 +2,9 @@ import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import classes from './App.module.css'
-import { Carousel } from 'primereact/carousel';
-import { Card } from 'primereact/card';
-import { PrimeReactProvider, PrimeReactContext } from 'primereact/api';
 import Dialog from './Dialog'
-import "primereact/resources/themes/lara-light-indigo/theme.css";
+import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
+import 'pure-react-carousel/dist/react-carousel.es.css';
 function App() {
   const products: any = [1, 2, 3, 4, 5, 6, 7];
   const [visible, setVisible] = useState(false);
@@ -24,35 +22,27 @@ function App() {
         </div>
       </div>)
   };
-  const responsiveOptions = [
-    {
-      breakpoint: '1400px',
-      numVisible: 2,
-      numScroll: 1,
-    },
-    {
-      breakpoint: '1199px',
-      numVisible: 3,
-      numScroll: 1,
-    },
-    {
-      breakpoint: '767px',
-      numVisible: 2,
-      numScroll: 1,
-    },
-    {
-      breakpoint: '575px',
-      numVisible: 1,
-      numScroll: 1,
-    },
-  ];
+
   return (
 
     <div className={classes.mainContent}>
-      
-      <Carousel value={products} numVisible={3} numScroll={1} className="custom-carousel" circular responsiveOptions={responsiveOptions}
-        autoplayInterval={7000} itemTemplate={makeCard} />
-        <Dialog handleClose={()=>setVisible(false)} visible={visible}/>
+      <CarouselProvider
+        naturalSlideWidth={480}
+        naturalSlideHeight={480}
+        totalSlides={6}
+        visibleSlides={3}
+        isIntrinsicHeight={true}
+      >
+        <Slider>
+          <Slide index={0}>{makeCard()}</Slide>
+          <Slide index={1}>{makeCard()}</Slide>
+          <Slide index={2}>{makeCard()}</Slide>
+          <Slide index={3}>{makeCard()}</Slide>
+          <Slide index={4}>{makeCard()}</Slide>
+          <Slide index={5}>{makeCard()}</Slide>
+        </Slider>
+      </CarouselProvider>
+      <Dialog handleClose={() => setVisible(false)} visible={visible} />
     </div>
 
   );
