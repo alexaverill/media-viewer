@@ -1,9 +1,11 @@
+html, body {margin: 0; height: 100%; overflow: hidden}
 body {
     background-color: #d9e0df;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    overlay: hidden;
 }
 
 .card {

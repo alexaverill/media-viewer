@@ -1,5 +1,16 @@
+.dialogoverlay{
+    --animation-speed:200ms;
+    position: absolute;
+    top:0;
+    visibility: hidden;
+    opacity: 0;
+    transition:visibility var(--animation-speed) linear,  opacity var(--animation-speed) ease-in;
+}
+.visible{
+    visibility: visible;
+    opacity: 1;
+}
 .dialog {
-
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -61,38 +72,4 @@
     background-color: lightblue;
     font-weight: bold;
 }
-.animation{
-    position: absolute;
-    top:0;
-}
-.fadeIn{
-    animation: fade-in 0.3s ease-in forwards;
-}
-.fadeOut{
-    animation: fade-out 0.3s ease-out forwards;
-    pointer-events: none;
-}
-@keyframes fade-in {
-    0% {
-      opacity: 0;
-      display: none;
-    }
-  
-    100% {
-      opacity: 1;
-      display: block;
-    }
-  }
-  
-  @keyframes fade-out {
-    0% {
-      opacity: 1;
-      display: block;
-    }
-  
-    100% {
-      opacity: 0;
-      display: none;
-      z-index: -1;
-    }
-  }
+

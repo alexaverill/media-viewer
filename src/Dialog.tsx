@@ -9,7 +9,7 @@ export default function Dialog({handleClose,visible}:any) {
 
     return (
         
-        <div className={visible? `${classes.animation} ${classes.fadeIn}`: `${classes.animation} ${classes.fadeOut}`}>
+        <div className={visible? `${classes.dialogoverlay} ${classes.visible}`: `${classes.dialogoverlay}`}>
             <div className={classes.background}></div>
             <div className={classes.dialog}>
                 <div className={classes.contentBox}>

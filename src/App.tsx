@@ -9,7 +9,6 @@ function App() {
   const products: any = [1, 2, 3, 4, 5, 6, 7];
   const [visible, setVisible] = useState(false);
   const handleCardClick = (e: any) => {
-    console.log("clicked");
     setVisible(true);
   }
   let makeCard = () => {
